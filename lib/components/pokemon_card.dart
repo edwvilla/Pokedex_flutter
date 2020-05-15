@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/constants.dart';
 
 class PokemonCard extends StatelessWidget {
-  PokemonCard({this.index});
+  PokemonCard({this.index, this.name, this.image, this.types});
   final int index;
+  final String name;
+  final String image;
+  final types;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +16,18 @@ class PokemonCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
       ),
       margin: EdgeInsets.all(10),
-      child: Text('this is $index'),
+      child: Stack(
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              Text(name ?? 'No data'),
+              Text(index.toString() ?? 'No data'),
+              Text(types.toString() ?? 'No data'),
+              Image.network(image ?? imgFailed),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
