@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/pages/pokedex_page.dart';
+import 'package:pokedex/pages/loading_scree.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,6 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       title: 'Pokedex',
-      home: PokedexPage(),
+      home: LoadingScreen(),
     );
   }
 }
