@@ -17,7 +17,7 @@ class PokemonCard extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => DetailsPage(id)));
+            context, MaterialPageRoute(builder: (context) => DetailsPage()));
       },
       child: Container(
         decoration: BoxDecoration(

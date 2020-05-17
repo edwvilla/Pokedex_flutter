@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/components/card_pokemon.dart';
 import 'package:pokedex/constants.dart';
-import 'package:pokedex/services/db_pokemon.dart';
+import 'package:pokedex/components/list_cards_pokemon.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage(this.cardsData);
-  final cardsData;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,11 +15,14 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Icon(
-          Icons.tune,
-          color: Colors.grey,
-          size: 30.0,
-        ),
+        title: Text('Pokedex', style: kPokedexTitle),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.tune),
+            onPressed: () {},
+            color: Colors.grey,
+          ),
+        ],
       ),
       body: Stack(
         children: <Widget>[
@@ -38,72 +38,9 @@ class HomePage extends StatelessWidget {
               opacity: 0.1,
             ),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10.0, 90.0, 0, 0),
-                  child: Text(
-                    'Pokedex',
-                    style: kPokedexTitle,
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 4,
-                child: PokemonList(cardsData),
-              ),
-            ],
-          ),
+          PokemonList(),
         ],
       ),
     );
-  }
-}
-
-class PokemonList extends StatefulWidget {
-  PokemonList(this.cardsData);
-  final cardsData;
-  @override
-  _PokemonListState createState() => _PokemonListState();
-}
-
-class _PokemonListState extends State<PokemonList> {
-  DataModel dataModel = DataModel();
-  int id;
-  String name;
-  String image;
-  String type1;
-  String type2;
-  var data;
-  @override
-  void initState() {
-    super.initState();
-    data = widget.cardsData;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-        padding: EdgeInsets.all(10),
-        itemCount: data.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 4 / 3,
-          crossAxisSpacing: 10.0,
-          mainAxisSpacing: 10.0,
-        ),
-        itemBuilder: (context, index) {
-          return PokemonCard(
-            index: index,
-            id: data[index]['nDex'],
-            image: data[index]['image'],
-            name: data[index]['name'],
-            type1: data[index]['type1'],
-            type2: data[index]['type2'],
-          );
-        });
   }
 }

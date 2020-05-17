@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/pages/loading_scree.dart';
+import 'package:pokedex/pages/home_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,12 +11,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(
-          color: Colors.white,
+          color: Colors.transparent,
           elevation: 0,
         ),
       ),
       title: 'Pokedex',
-      home: LoadingScreen(),
+      home: HomePage(),
     );
   }
 }

@@ -12,12 +12,10 @@ const kPokeBallWhite = 'assets/pokeball_white.png';
 const firstGenURL =
     'https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json';
 
-const dbURL = 'https://pokedexvuejs.herokuapp.com/pokedexdb';
 
 const imgFailed =
     'https://ya-webdesign.com/transparent250_/pokemon-clipart-silhouette-1.png';
 
-const detailsPkmURL = 'https://pokeapi.co/api/v2/pokemon';
 
 const Map<String, Color> primaryColor = {
   'grass': Color(0xff49d0b0),
